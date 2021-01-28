@@ -1,5 +1,7 @@
-.App {
-  text-align: center;
+h1 {
+  color: red;
+  padding: 0000;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .App-logo {
@@ -35,4 +37,7 @@
   to {
     transform: rotate(360deg);
   }
+}
+.badge-primary {
+  margin-left: 20px !important;
 }
