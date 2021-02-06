@@ -1,16 +1,15 @@
-import firebase from 'firebase/app'
-import 'firebase/firestore'
+import firebase from "firebase/app";
+import "firebase/firestore";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyBjAicvZJmnSUJ7hmht4MWLxFqFlRLbg7w",
-    authDomain: "zephyr-project-f2ca7.firebaseapp.com",
-    databaseURL: "https://zephyr-project-f2ca7.firebaseio.com",
-    projectId: "zephyr-project-f2ca7",
-    storageBucket: "zephyr-project-f2ca7.appspot.com",
-    messagingSenderId: "730197660354",
-    appId: "1:730197660354:web:343973528bf917e73de15b",
-    measurementId: "G-61JYMCWM2V"
+  apiKey: "AIzaSyA3X1diBFZPzZZpEs8zaJLAFIQwmBHRsfM",
+  authDomain: "crud-react-firebase-8f4ee.firebaseapp.com",
+  databaseURL: "https://crud-react-firebase-8f4ee.firebaseio.com",
+  projectId: "crud-react-firebase-8f4ee",
+  storageBucket: "crud-react-firebase-8f4ee.appspot.com",
+  messagingSenderId: "232074208526",
+  appId: "1:232074208526:web:5987846963050ccd03235f",
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-export {firebase};
+export { firebase };

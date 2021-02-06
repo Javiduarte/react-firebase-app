@@ -88,6 +88,11 @@ function App() {
     }
   };
 
+  const handleCancel = () => {
+    setModoEdicion(false);
+    setshowForm(!showForm);
+  };
+
   useEffect(() => {
     obtenerDatos();
   }, []);
@@ -96,11 +101,7 @@ function App() {
     <div className="container mb-2">
       <div className="row">
         <div className="col-md-12">
-          <a
-            href="#"
-            onClick={() => setshowForm(!showForm)}
-            className="float-right"
-          >
+          <a href="#" onClick={handleCancel} className="float-right">
             {showForm ? "Cancelar" : "+ Agregar Tarea"}
           </a>
 
