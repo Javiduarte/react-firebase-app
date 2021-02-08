@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
-import { firebase } from "./firebase";
-import "./App.css";
+import { firebase } from "../api/firebase";
+
 const initTarea = {
   name: "",
   status: "TODO",
