@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function AlertMessage({
   isOpen,
-  severity = "info",
+  severity,
   message,
   handleClose,
 }) {
