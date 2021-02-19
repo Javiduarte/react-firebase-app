@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import PropTypes from "prop-types";
 import EditRoundedIcon from "@material-ui/icons/EditRounded";
 import DeleteIcon from "@material-ui/icons/Delete";
@@ -16,6 +16,7 @@ import useStyles from "../UITemplate";
 import AlertDialog from "../components/AlertDialog";
 import AlertMessage from "../components/AlertMessage";
 import { taskServices } from "../api";
+import { GlobalContext } from "../store";
 
 const statuses = [
   { name: "TODO", value: "TODO" },
@@ -24,10 +25,16 @@ const statuses = [
 ];
 
 const CardsGrid = ({ tareas, setTareas }) => {
+  const [glbState] = useContext(GlobalContext);
   const classes = useStyles();
   const [tareId, setTareaId] = useState("");
   const [openConfirm, setOpenConfirm] = useState(false);
   const [showMessage, setShowMessage] = useState(false);
+  const { taskStatuses } = glbState;
+
+  console.log("==============taskStatuses======================");
+  console.log(taskStatuses);
+  console.log("====================================");
 
   const handleOpenDeleteDialog = (id) => {
     setOpenConfirm(true);
@@ -73,7 +80,8 @@ const CardsGrid = ({ tareas, setTareas }) => {
                 <Typography gutterBottom variant="h5" component="h2">
                   <Chip
                     label={
-                      statuses.find((item) => item.value === tarea.status).name
+                      taskStatuses.find((item) => item.value === tarea.status)
+                        .name
                     }
                     variant="outlined"
                     icon={<DoneIcon />}
