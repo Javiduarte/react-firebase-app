@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import PropTypes from "prop-types";
 import {
   Grid,
@@ -13,12 +13,7 @@ import Icon from "../components/Icon";
 import ModalForm from "../components/ModalForm";
 import { useNotification, useForm } from "../hooks";
 import useStyles from "../UITemplate";
-
-const statuses = [
-  { name: "TODO", value: "TODO" },
-  { name: "IN PROGRESS", value: "INPROGRESS" },
-  { name: "DONE", value: "DONE" },
-];
+import { GlobalContext } from "../store";
 
 const initTarea = {
   name: "",
@@ -26,11 +21,14 @@ const initTarea = {
 };
 
 const AddCard = ({ setTareas }) => {
+  const [glbState] = useContext(GlobalContext);
   const alert = useNotification();
   const classes = useStyles();
   const [openModal, setOpenModal] = useState(false);
 
   const [tarea, handleInputChange, reset] = useForm(initTarea);
+
+  const statuses = glbState.taskStatuses;
 
   const handleClose = () => {
     reset();
@@ -41,7 +39,7 @@ const AddCard = ({ setTareas }) => {
     if (tarea.name.trim().length > 3) {
       taskServices.save(tarea).then(
         (data) => {
-          setTareas((t) => [{ id: data.id, ...tarea }, ...t]);
+          setTareas((tareasList) => [{ id: data.id, ...tarea }, ...tareasList]);
           alert({
             isOpen: true,
             message: "Card was added succesfully.",

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import PropTypes from "prop-types";
 import EditRoundedIcon from "@material-ui/icons/EditRounded";
 import DeleteIcon from "@material-ui/icons/Delete";
@@ -16,18 +16,16 @@ import useStyles from "../UITemplate";
 import AlertDialog from "../components/AlertDialog";
 import AlertMessage from "../components/AlertMessage";
 import { taskServices } from "../api";
-
-const statuses = [
-  { name: "TODO", value: "TODO" },
-  { name: "IN PROGRESS", value: "INPROGRESS" },
-  { name: "DONE", value: "DONE" },
-];
+import { GlobalContext } from "../store";
 
 const CardsGrid = ({ tareas, setTareas }) => {
+  const [glbState] = useContext(GlobalContext);
   const classes = useStyles();
   const [tareId, setTareaId] = useState("");
   const [openConfirm, setOpenConfirm] = useState(false);
   const [showMessage, setShowMessage] = useState(false);
+
+  const statuses = glbState.taskStatuses;
 
   const handleOpenDeleteDialog = (id) => {
     setOpenConfirm(true);
