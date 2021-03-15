@@ -28,7 +28,7 @@ export default function AlertMessage({
     <div className={classes.root}>
       <Snackbar
         open={isOpen}
-        autoHideDuration={6000}
+        autoHideDuration={1500}
         onClose={handleClose}
         anchorOrigin={{ vertical: "top", horizontal: "right" }}
       >

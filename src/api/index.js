@@ -11,8 +11,8 @@ function save(tarea) {
   return db.collection(collectionName).add(tarea);
 }
 
-function edit(id, tarea) {
-  db.collection(collectionName).doc(id).update(tarea);
+function edit(tarea) {
+  return db.collection(collectionName).doc(tarea.id).update(tarea);
 }
 
 function remove(id) {

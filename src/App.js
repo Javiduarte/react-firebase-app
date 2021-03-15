@@ -3,7 +3,6 @@ import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Home from "./pages/Home";
 import Header from "./components/Header";
-import Footer from "./components/Footer";
 import { NotificationProvider } from "./contexts";
 
 function App() {
@@ -24,7 +23,6 @@ function App() {
         <NotificationProvider>
           <Header />
           <Home />
-          <Footer />
         </NotificationProvider>
       </ThemeProvider>
     </>
